@@ -1,0 +1,22 @@
+# Blender MTL File: 'Explosions Zeichnung Car body new[1].blend'
+# Material Count: 2
+
+newmtl AchseMaterial0
+Ns 19.999989
+Ka 1.000000 1.000000 1.000000
+Kd 0.506983 0.531564 0.550000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl Zwischen_Scheibe
+Ns 793.719008
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2

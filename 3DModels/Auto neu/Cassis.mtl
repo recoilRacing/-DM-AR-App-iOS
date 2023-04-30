@@ -1,0 +1,46 @@
+# Blender MTL File: 'Explosions Zeichnung Car body new.blend'
+# Material Count: 4
+
+newmtl PumaTransparentBackground
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd I:\\2D Objekte Download\\PumaTransparentBackground.png
+map_d I:\\2D Objekte Download\\PumaTransparentBackground.png
+
+newmtl Startnummer_13._DM.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd I:\\2D Objekte Download\\Startnummer 13. DM.png
+map_d I:\\2D Objekte Download\\Startnummer 13. DM.png
+
+newmtl White.003
+Ns 609.351161
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl green.004
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.002732 0.198069 0.052861
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3

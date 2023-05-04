@@ -13,15 +13,16 @@ public class ExploRotatingLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            // Debug.Log("hgjfijhguvuz" + hit.transform.name);
 
+
+
+        }
     }
 
-    void OnMouseDrag()
-    {
-        float XAxisRotation = Input.GetAxis("Mouse X");
-        float YAxisRotation = Input.GetAxis("Mouse Y");
 
-        transform.Rotate(Vector3.down, XAxisRotation);
-        transform.Rotate(Vector3.right, XAxisRotation);
-    }
 }

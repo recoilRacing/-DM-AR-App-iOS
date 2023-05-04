@@ -87,6 +87,10 @@ public class Click_Karte : MonoBehaviour
                         PlayButton.SetActive(true);
                     }
                 }
+                // else if (hit.transform.name == "Auto Container")
+                // {
+                //     Debug.Log("Auto Container");
+                // }
             }
             else
             {

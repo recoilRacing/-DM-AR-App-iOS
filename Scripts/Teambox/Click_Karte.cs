@@ -10,6 +10,7 @@ public class Click_Karte : MonoBehaviour
     VideoPlayer VideoPlayer;
     GameObject PlayButton;
     Animator VideoAnimator;
+    Animator CarAnimator;
 
     public VideoClip caro;
     public VideoClip benno;
@@ -40,6 +41,9 @@ public class Click_Karte : MonoBehaviour
 
         Video = GameObject.Find("Video");
         VideoAnimator = Video.GetComponent<Animator>();
+
+        CarAnimator = GameObject.Find("Auto").GetComponent<Animator>();
+
         Video.SetActive(false);
     }
 
@@ -59,8 +63,27 @@ public class Click_Karte : MonoBehaviour
             {
                 Debug.Log(hit.transform.name);
 
-
-                if (hit.transform.name.Contains("Target Representation"))
+                if (hit.transform.name == "Target Representation Explo")
+                {
+                    CarAnimator.SetBool("Explo", !CarAnimator.GetBool("Explo"));
+                }
+                else if (hit.transform.name == "Target Representation Alt")
+                {
+                    CarAnimator.SetBool("Alt", true);
+                }
+                else if (hit.transform.name == "Target Representation Neu")
+                {
+                    CarAnimator.SetBool("Alt", false);
+                }
+                else if (hit.transform.name == "Target Representation Strom")
+                {
+                    CarAnimator.SetBool("Stromlinien", !CarAnimator.GetBool("Stromlinien"));
+                }
+                else if (hit.transform.name == "Target Representation Druck")
+                {
+                    CarAnimator.SetBool("Druck", !CarAnimator.GetBool("Druck"));
+                }
+                else if (hit.transform.name.Contains("Target Representation"))
                 {
                     Names personClicked = getPersonFromClick(hit.transform.name);
                     setVideoSourceFromName(personClicked);
@@ -87,10 +110,7 @@ public class Click_Karte : MonoBehaviour
                         PlayButton.SetActive(true);
                     }
                 }
-                // else if (hit.transform.name == "Auto Container")
-                // {
-                //     Debug.Log("Auto Container");
-                // }
+               
             }
             else
             {

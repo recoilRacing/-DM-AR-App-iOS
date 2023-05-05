@@ -11,6 +11,15 @@ public class Click_Karte : MonoBehaviour
     GameObject PlayButton;
     Animator VideoAnimator;
     Animator CarAnimator;
+    public MeshRenderer Alt;
+    public MeshRenderer Neu;
+    public MeshRenderer Strom;
+    public MeshRenderer Druck;
+    public MeshRenderer Explo;
+
+    public Material active;
+    public Material inactive;
+    public Material blocked;
 
     public VideoClip caro;
     public VideoClip benno;
@@ -18,6 +27,8 @@ public class Click_Karte : MonoBehaviour
     public VideoClip marleen;
     public VideoClip amelie;
     public VideoClip finn;
+
+    private Vector2 mousePosition;
 
     public enum Names
     {
@@ -45,6 +56,8 @@ public class Click_Karte : MonoBehaviour
         CarAnimator = GameObject.Find("Auto").GetComponent<Animator>();
 
         Video.SetActive(false);
+
+
     }
 
     private void handleOnDisapear()
@@ -63,25 +76,67 @@ public class Click_Karte : MonoBehaviour
             {
                 Debug.Log(hit.transform.name);
 
-                if (hit.transform.name == "Target Representation Explo")
+                if (hit.transform.name == "Target Representation Explo" && !CarAnimator.GetBool("Druck") && !CarAnimator.GetBool("Strom"))
                 {
                     CarAnimator.SetBool("Explo", !CarAnimator.GetBool("Explo"));
+                    if (CarAnimator.GetBool("Explo"))
+                    {
+                        Explo.material = active;
+                        Druck.material = blocked;
+                        Strom.material = blocked;
+                    } else
+                    {
+                        Explo.material = inactive;
+                        Strom.material = inactive;
+                        Druck.material = inactive;
+                    }
+                    Explo.material = active;
                 }
                 else if (hit.transform.name == "Target Representation Alt")
                 {
                     CarAnimator.SetBool("Alt", true);
+                    Alt.material = active;
+                    Neu.material = inactive;
                 }
                 else if (hit.transform.name == "Target Representation Neu")
                 {
                     CarAnimator.SetBool("Alt", false);
+                    Alt.material = inactive;
+                    Neu.material = active;
                 }
-                else if (hit.transform.name == "Target Representation Strom")
+                else if (hit.transform.name == "Target Representation Strom" && !CarAnimator.GetBool("Explo"))
                 {
                     CarAnimator.SetBool("Stromlinien", !CarAnimator.GetBool("Stromlinien"));
+                    if (CarAnimator.GetBool("Stromlinien"))
+                    {
+                        Explo.material = blocked;
+                        Strom.material = active;
+                    }
+                    else
+                    {
+                        if (!CarAnimator.GetBool("Druck"))
+                        {
+                            Explo.material = inactive;
+                        }
+                        Strom.material = inactive;
+                    }
                 }
-                else if (hit.transform.name == "Target Representation Druck")
+                else if (hit.transform.name == "Target Representation Druck" && !CarAnimator.GetBool("Explo"))
                 {
                     CarAnimator.SetBool("Druck", !CarAnimator.GetBool("Druck"));
+                    if (CarAnimator.GetBool("Druck"))
+                    {
+                        Explo.material = blocked;
+                        Druck.material = active;
+                    }
+                    else
+                    {
+                        if (!CarAnimator.GetBool("Stromlinien"))
+                        {
+                            Explo.material = inactive;
+                        }
+                        Druck.material = inactive;
+                    }
                 }
                 else if (hit.transform.name.Contains("Target Representation"))
                 {

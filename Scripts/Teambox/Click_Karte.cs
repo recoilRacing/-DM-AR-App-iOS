@@ -76,8 +76,10 @@ public class Click_Karte : MonoBehaviour
             {
                 Debug.Log(hit.transform.name);
 
-                if (hit.transform.name == "Target Representation Explo" && !CarAnimator.GetBool("Druck") && !CarAnimator.GetBool("Strom"))
+                if (hit.transform.name == "Target Representation Explo" && !CarAnimator.GetBool("Druck") && !CarAnimator.GetBool("Stromlinien"))
                 {
+                    Debug.Log(CarAnimator.GetBool("Druck"));
+                    Debug.Log(CarAnimator.GetBool("Strom"));
                     CarAnimator.SetBool("Explo", !CarAnimator.GetBool("Explo"));
                     if (CarAnimator.GetBool("Explo"))
                     {
@@ -90,7 +92,6 @@ public class Click_Karte : MonoBehaviour
                         Strom.material = inactive;
                         Druck.material = inactive;
                     }
-                    Explo.material = active;
                 }
                 else if (hit.transform.name == "Target Representation Alt")
                 {
@@ -144,10 +145,9 @@ public class Click_Karte : MonoBehaviour
                     setVideoSourceFromName(personClicked);
 
                     Video.SetActive(true);
+                    VideoPlayer.frame = 10;
                     VideoPlayer.Play();
                     VideoPlayer.Pause();
-                    VideoPlayer.frame = 10;
-
                     VideoAnimator.SetInteger("Teammitglied", (int)personClicked + 1);
 
                     PlayButton.SetActive(true);
